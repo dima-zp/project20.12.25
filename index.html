@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>CERBO Landing</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+  <style>
+
+
+
+    /* Прозрачное меню сверху */
+    .navbar {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      background-color: rgba(255,255,255,0.2) !important;
+      backdrop-filter: saturate(140%) blur(6px);
+      z-index: 1000;
+      transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    }
+    .navbar.scrolled {
+      background-color: rgba(255,255,255,0.95) !important;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    }
+    .navbar .navbar-brand, .navbar .nav-link {
+      color: #0d6efd !important;
+      font-weight: 500;
+    }
+    .navbar .nav-link:hover { color: #084298 !important; }
+
+    /* Герой с фоном на весь экран */
+    .hero {
+      height: 100vh;
+      /* background: url('images/bg.jpg') no-repeat center center; */
+      background-size: cover;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      text-align: center;
+    }
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.4);
+      z-index: 0;
+    }
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      padding: 0 16px;
+    }
+
+    /* Единый стиль для кнопок поверх героя */
+    .btn-custom {
+      position: absolute;
+      z-index: 2; /* поверх затемнения и контента героя */
+      padding: 12px 24px;
+      font-size: 1.05rem;
+      border-radius: 30px;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+    .btn-custom:hover {
+      transform: scale(1.05);
+      box-shadow: 0 6px 16px rgba(0,0,0,0.25);
+    }
+
+    /* Секция под героем (для контента, если нужно) */
+    section.page {
+      min-height: 60vh;
+      padding: 2px 0;
+      background: #f8f9fa;
+    }
+
+    /* Одна универсальная форма (модалка) */
+    .modal-content {
+      border-radius: 12px;
+      box-shadow: 0 12px 32px rgba(0,0,0,0.2);
+    }
+    .contact-form .form-control {
+      height: 44px;
+    }
+    .contact-form textarea.form-control {
+      height: auto;
+      min-height: 120px;
+    }
+
+    /* Отступ контента от фиксированного меню */
+    .page-offset { margin-top: 72px; }
+
+
+.cust-btn { width: 200px; /* ширина кнопки */ 
+    height: 60px; /* высота кнопки */ 
+    color: white; /* цвет текста */ 
+    font-size: 18px; /* размер текста */ 
+    border: none; /* убираем рамку */ 
+    background-image: url('images/button-bg.jpg'); /* путь к картинке */ 
+    background-size: cover; /* растягивает картинку на всю кнопку */ 
+    background-position: center; /* центрирует фон */ 
+    background-repeat: 
+no-repeat; /* убирает повтор */ 
+cursor: pointer; /* курсор при наведении */ }
+
+
+
+
+
+
+
+  </style>
+</head>
+<body>
+
+  <!-- Прозрачное меню -->
+  <nav class="navbar navbar-expand-lg">
+    <div class="container">
+      <a class="navbar-brand" href="#">CERBO</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+              data-bs-target="#navbarNav" aria-controls="navbarNav"
+              aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="#about">Про нас</a></li>
+          <li class="nav-item"><a class="nav-link" href="#services">Послуги</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contacts">Контакти</a></li>
+          <li class="nav-item">
+            <button class="btn btn-primary ms-lg-3" data-bs-toggle="modal" data-bs-target="#contactModal">
+              Звернутись
+            </button>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+
+    <!-- Кнопка слева сверху -->
+    <button class="btn btn-primary btn-custom"
+            style="top:100px; right:50%;"
+            data-bs-toggle="modal" data-bs-target="#contactModal">
+      Про нас
+    </button>
+
+   
+
+
+
+  <!-- Контентные секции (опционально) -->
+  <section id="about" class="page page-offset">
+    <div class="container">
+    <img src="heder 1 site.png" alt="">
+      <!-- <a href="#about" class="btn btn-primary btn-custom"  ></a> -->
+    </div>
+  </section>
+
+  <section id="services" class="page">
+    <div class="container">
+         <img src="2site.png" alt="">
+            <!-- Кнопка слева снизу -->
+    <button class="btn btn-danger btn-custom"
+            style=" position: absolute; top: 128%; left:51%;    width: 540px;  height: 80px; "
+            data-bs-toggle="modal" data-bs-target="#contactModal">
+     Upgrade to Premium
+    </button>
+
+            <!-- Кнопка справа снизу -->
+    <button class="btn btn-danger btn-custom"
+            style="position: absolute; top:128%; right:52%;    width: 540px;  height: 80px; "
+            data-bs-toggle="modal" data-bs-target="#contactModal">
+      Get Started Free
+    </button>
+    <div>
+            <!-- Кнопка справа снизу -->
+    <button class="cust-btn"
+            style="top: 150%; right:51%;    width: 190px;  height: 70px; "
+            data-bs-toggle="modal" data-bs-target="#contactModal">
+     <img src="btn 1.png" alt="">
+    </button>
+    </div>
+
+   
+
+      <h2 class="mb-3 text-center">Наші послуги</h2>
+      <p class=" text-center">Список ключових напрямків роботи і переваг.</p>  
+    </div>
+  </section>
+
+  <section id="contacts" class="page">
+    <div class="container">
+        <img src="3site.png" alt="">
+
+      <h2 class="mb-3">Контакти</h2>
+      <p>📞 +380 (67) 427-52-69 · 📧 betsdima13@gmail.com</p>
+      <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#contactModal">
+        Відкрити форму
+      </button>
+      <!-- Кнопка справа снизу -->
+    <button class="btn btn-danger btn-custom"
+            style="top:100px; right:40%;"
+            data-bs-toggle="modal" data-bs-target="#contactModal">
+      Контакти
+    </button>
+    </div>
+  </section>
+
+  <!-- Одна универсальная форма (модальное окно) -->
+  <div class="modal fade" id="contactModal" tabindex="-1" aria-labelledby="contactModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content contact-form">
+        <div class="modal-header">
+          <h5 class="modal-title" id="contactModalLabel">Зв’язатися  нами</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Закрити"></button>
+        </div>
+        <form id="formContact">
+          <div class="modal-body">
+            <div class="mb-3">
+              <label for="name" class="form-label">Ім’я</label>
+              <input type="text" class="form-control" id="name" name="name" placeholder="Ваше ім’я" required />
+            </div>
+            <div class="mb-3">
+              <label for="email" class="form-label">Email</label>
+              <input type="email" class="form-control" id="email" name="email" placeholder="your@email.com" required />
+            </div>
+            <div class="mb-3">
+              <label for="message" class="form-label">Повідомлення</label>
+              <textarea class="form-control" id="message" name="message" rows="4" placeholder="Ваше повідомлення" required></textarea>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Скасувати</button>
+            <button type="submit" class="btn btn-success">Надіслати</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script>
+    // Меню становится более непрозрачным при скролле
+    window.addEventListener('scroll', function() {
+      const navbar = document.querySelector('.navbar');
+      if (window.scrollY > 50) navbar.classList.add('scrolled');
+      else navbar.classList.remove('scrolled');
+    });
+
+    // Пример обработки формы (клиентски). Заміни на реальний submit (PHP) при потребі.
+    document.getElementById('formContact').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const btns = document.querySelectorAll('[data-bs-target="#contactModal"]');
+      // Имитация отправки
+      const form = e.target;
+      const data = {
+        name: form.name.value.trim(),
+        email: form.email.value.trim(),
+        message: form.message.value.trim()
+      };
+      if (!data.name || !data.email || !data.message) return;
+
+      // Закрыть модалку и показать уведомление
+      const modalEl = document.getElementById('contactModal');
+      const modal = bootstrap.Modal.getInstance(modalEl) || new bootstrap.Modal(modalEl);
+      modal.hide();
+
+      alert('Ваше повідомлення надіслано! Ми зв’яжемося з вами найближчим часом.');
+      form.reset();
+    });
+  </script>
+</body>
+</html>
